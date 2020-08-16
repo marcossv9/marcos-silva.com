@@ -1,4 +1,4 @@
 baseURL = "https://marcos-silva.com/"
 languageCode = "en-us"
 title = "Marcos Silva"
-theme = "hugo-uilite"
+theme = "marcos-uilite"
