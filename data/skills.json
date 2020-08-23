@@ -1,0 +1,16 @@
+{
+	"title" : "Skills",
+	"skills" : {
+		"AWS" : "85",
+		"Linux" : "90",
+		"Containers" : "85",
+		"CI/CD" : "90",
+		"Metrics and Logs" : "70",
+		"Infra as Code" : "75",
+		"Configuration Management" : "65",
+		"Databases" : "70",
+		"Web Servers" : "80",
+		"Security" : "65",
+		"Scripting" : "70" 
+	}
+}
