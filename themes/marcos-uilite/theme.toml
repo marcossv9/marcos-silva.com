@@ -6,8 +6,8 @@ license = "MIT"
 licenselink = "https://github.com/uicardiodev/hugo-uilite/blob/master/LICENSE.md"
 description = "Hugo UILite theme is designed for developers and desginers so that they can showcase their work without any struggle"
 homepage = "https://uicard.io/products/hugo-uilite"
-tags = ["minimal","responsive","clean","modern","colors","portfolio","blog","skills","experience","services","uicardio"]
-features = ["blog","services","portfolio","contact","skills","formspree","responsive"]
+tags = ["minimal","responsive","clean","modern","colors","portfolio","skills","experience","services","uicardio"]
+features = ["services","portfolio","contact","skills","formspree","responsive"]
 min_version = "0.31.1"
 
 [author]
