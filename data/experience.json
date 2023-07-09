@@ -2,22 +2,34 @@
 	"title" : "Experience",
 	"experience" : [
 		{
+			"timeperiod" : "May 2023 - Present",
+			"company" : "Persefoni",
+			"website": "https://www.persefoni.com",
+			"description" : "Building The Platform for Climate Management."
+		},
+		{
+			"timeperiod" : "Oct 2022 - Apr 2023",
+			"company" : "EnterpriseDB",
+			"website": "https://www.enterprisedb.com",
+			"description" : "Bringing Postgres to Kubernetes."
+		},
+		{
 			"timeperiod" : "Feb 2019 - Present",
 			"company" : "GOintegro",
 			"website": "https://www.gointegro.com",
-			"description" : "Building highly available and scalable Infrastructures using DevOps practices. "
+			"description" : "Building highly available and scalable Infrastructures using DevOps practices."
 		},
 		{
 			"timeperiod" : "Aug 2015 - Feb 2019",
 			"company" : "Assertiva",
 			"website": "https://www.assertiva.biz",
-			"description" : "Improved Security in infrastructure and customer applications. "
+			"description" : "Improved the Security of Infrastructure and Applications."
 		},
 		{
 			"timeperiod" : "Dec 2013 - Aug 2015",
 			"company" : "The Vines of Mendoza",
 			"website": "http://www.vinesofmendoza.com",
-			"description" : "Managed Network and Systems in company. "
-		}	
+			"description" : "Managed Network and Systems in company."
+		}
 	]
 }
