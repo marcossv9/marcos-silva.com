@@ -15,7 +15,6 @@ Hugo UILite portfolio theme is designed especially for designers and developers 
 
 ### Pro version also includes
 
-- Blog
 - Work/portfolio
 - Disqus
 - Documentation
