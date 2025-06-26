@@ -15,7 +15,7 @@ echo "🟢 Done!"
 
 # Run the custom model.
 echo "🔵 Running custom model..."
-ollama run marcos-assistant
+ollama run marcos-assistant:1.0
 echo "🟢 Done!"
 
 # echo "🔴 Retrieve DeepSeek model..."

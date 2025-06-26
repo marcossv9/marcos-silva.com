@@ -34,3 +34,6 @@ LICENSE
 README.md
 # Exclude the project virtual environment from image builds
 .venv
+
+# Exclude Terraform directories for now
+terraform

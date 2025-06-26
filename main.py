@@ -32,18 +32,19 @@ def chat_stream():
         context = f.read()
 
     prompt = (
-        "You are the personal assistant of Marcos Silva. "
+        "You are a helpful assistant designed to answer questions about Marcos Silva, a DevOps Engineer based in Argentina. "
         "Answer questions strictly using the provided context about Marcos Silva. "
         "Do not use any outside knowledge or make assumptions. "
         "If the answer is not found in the context, or the question is not about Marcos Silva, reply with: 'Sorry, I don’t have that information.'\n\n"
         "Answer all questions in English.\n\n"
+        "If people ask more information about him, share any other aspect of Marcos."
         f"---\n{context}\n---\n\n"
         f"Question: {question}\nAnswer:"
     )
 
     def generate():
         stream = chat(
-            model="marcos-assistant",
+            model="marcos-assistant:1.0",
             messages=[{"role": "user", "content": prompt}],
             stream=True,
         )

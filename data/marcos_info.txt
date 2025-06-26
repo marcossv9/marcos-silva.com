@@ -16,9 +16,10 @@ Skills
 Cloud: AWS
 Container: Docker
 Container Orchestration: Kubernetes (EKS)
-IaC: Terraform, Helm, Karpenter, GitOps (ArgoCD, FluxCD)
+IaC: Terraform, CloudFormation
+Cloud Native: Helm, Karpenter, GitOps (ArgoCD, FluxCD)
 Scripting: Bash, Python
-CI/CD: GitHub Actions, Jenkins
+CI/CD: GitHub Actions, Jenkins, Bitbucket Pipelines
 Monitoring & Logging: Datadog, Prometheus, Grafana, CloudWatch, NewRelic, Fluentd, Alertmanager
 Security: Snyk, Kyverno, Auth0, SonarQube
 OS: Linux (RHEL, SLES, Ubuntu)

@@ -4,91 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Marcos Silva</title>
-  <style>
-    body {
-      font-family: "Segoe UI", sans-serif;
-      background: #f4f6f8;
-      margin: 0;
-      padding: 2rem;
-      color: #333;
-    }
-
-    .container {
-      max-width: 600px;
-      margin: auto;
-      background: #fff;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    h1 {
-      text-align: center;
-      color: #2c3e50;
-    }
-
-    input[type="text"] {
-      width: 100%;
-      padding: 1rem;
-      margin-top: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
-
-    button {
-      margin-top: 1rem;
-      width: 100%;
-      padding: 1rem;
-      background: #0066cc;
-      color: #fff;
-      font-size: 1rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #004999;
-    }
-
-    .response-box {
-      margin-top: 2rem;
-      background: #eef;
-      padding: 1rem;
-      border-radius: 8px;
-      min-height: 50px;
-      white-space: pre-wrap;
-    }
-
-    label {
-      font-weight: bold;
-      margin-top: 1rem;
-      display: block;
-    }
-
-    select {
-      width: 100%;
-      padding: 0.8rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-    }
-
-    @media (max-width: 500px) {
-
-      input[type="text"],
-      select {
-        font-size: 0.9rem;
-        padding: 0.7rem;
-      }
-
-      button {
-        font-size: 0.9rem;
-        padding: 0.8rem;
-      }
-    }
-  </style>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
@@ -121,51 +38,6 @@
     <div class="response-box" id="answerBox"></div>
   </div>
 
-  <script>
-    function sendQuestion() {
-      const question = document.getElementById("questionInput").value;
-      const answerBox = document.getElementById("answerBox");
-      answerBox.innerText = "Thinking...\n";
-
-      fetch("/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question: question })
-      }).then(() => {
-        const eventSource = new EventSource('/chat-stream');
-
-        let responseText = "";
-        eventSource.onmessage = (event) => {
-          responseText += event.data;
-          answerBox.innerText = responseText;
-        };
-
-        eventSource.onerror = (err) => {
-          eventSource.close();
-          console.error("Stream error:", err);
-          answerBox.innerText += "\n\n[Stream ended or failed]";
-        };
-      });
-    }
-
-    // Dropdown to input sync
-    const dropdown = document.getElementById('questionDropdown');
-    const input = document.getElementById('questionInput');
-    dropdown.addEventListener('change', function () {
-      if (dropdown.value) {
-        input.value = dropdown.value;
-        input.focus();
-      }
-    });
-
-    // Responsive input field
-    function resizeInput() {
-      input.style.fontSize = window.innerWidth < 500 ? '0.95rem' : '1rem';
-      input.style.padding = window.innerWidth < 500 ? '0.7rem' : '1rem';
-    }
-    window.addEventListener('resize', resizeInput);
-    resizeInput();
-  </script>
 </body>
 
 </html>

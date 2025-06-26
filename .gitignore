@@ -44,3 +44,6 @@ data/*.txt
 !data/marcos_info.txt
 
 tmp_*.txt
+
+# Terraform
+terraform
