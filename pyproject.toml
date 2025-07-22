@@ -1,12 +1,12 @@
 [project]
 name = "marcos-silva-com"
 version = "0.1.0"
-description = "Add your description here"
+description = "AI-powered personal website using Flask and Ollama"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "flask>=3.1.1",
     "ollama>=0.5.1",
-    "requests>=2.32.4",
-    "ruff>=0.11.11",
+    "requests>=2.32.4",  # Required by ollama for HTTP requests
+    "ruff>=0.11.11",  # Code linting and formatting
 ]
