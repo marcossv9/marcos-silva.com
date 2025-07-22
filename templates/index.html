@@ -6,36 +6,80 @@
   <title>Marcos Silva</title>
   <script src="{{ url_for('static', filename='script.js') }}"></script>
   <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <!-- Standard favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/static/favicons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/static/favicons/favicon-192x192.png">
+
+  <!-- Apple Touch Icon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/favicons/favicon-180x180.png">
+
+  <!-- Legacy favicon.ico -->
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+  <meta name="description"
+    content="Ask Marcos Silva's AI assistant anything about his DevOps, Cloud, and Automation experience. Marcos Silva is a DevOps Engineer based in Argentina with expertise in AWS, Kubernetes, CI/CD, and more.">
+  <meta name="keywords"
+    content="Marcos Silva, DevOps, Cloud, AWS, Kubernetes, CI/CD, Automation, Argentina, Resume, LinkedIn, GitHub, Infrastructure as Code, IaC, Monitoring, Security, Python, Bash, Terraform, ArgoCD, Jenkins, GitOps, Resume, Professional Experience">
+  <meta name="author" content="Marcos Silva">
+  <meta property="og:title" content="Ask anything about Marcos Silva">
+  <meta property="og:description"
+    content="Interact with Marcos Silva's AI assistant and learn about his DevOps, Cloud, and Automation expertise.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://marcos-silva.com/">
+  <meta property="og:image" content="https://marcos-silva.com/static/marcos-og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ask anything about Marcos Silva">
+  <meta name="twitter:description"
+    content="Interact with Marcos Silva's AI assistant and learn about his DevOps, Cloud, and Automation expertise.">
+  <meta name="twitter:image" content="https://marcos-silva.com/static/marcos-og-image.png">
 </head>
 
 <body>
   <div class="container">
     <h1>Ask anything about Marcos</h1>
     <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem;">
-      <select id="questionDropdown">
-        <option value="">Select a sample question...</option>
-        <option>What programming languages does Marcos use?</option>
-        <option>Which container orchestration platforms is Marcos experienced with?</option>
-        <option>Where is Marcos based?</option>
-        <option>What monitoring tools has Marcos worked with?</option>
-        <option>Which CI/CD tools does Marcos know?</option>
-        <option>What is Marcos’s GitHub username?</option>
-        <option>What is Marcos’s professional background?</option>
-        <option>Which companies has Marcos worked for?</option>
-        <option>What is Marcos's educational background?</option>
-        <option>Which scripting languages does Marcos use?</option>
-        <option>What security tools has Marcos implemented?</option>
-        <option>What cloud services does Marcos have experience with?</option>
-        <option>What databases has Marcos managed?</option>
-        <option>What languages does Marcos speak?</option>
-        <option>How did Marcos help optimize AWS costs at GOintegro?</option>
-        <option>What operating systems is Marcos familiar with?</option>
-        <option>What is Marcos’s LinkedIn profile?</option>
-      </select>
+      <div class="custom-dropdown" id="customDropdown">
+        <div class="dropdown-selected" id="dropdownSelected">Select a sample question...</div>
+        <ul class="dropdown-options" id="dropdownOptions" style="display:none;">
+          <li>What programming languages does Marcos use?</li>
+          <li>What Infrastructure as Code (IaC) tools does Marcos use?</li>
+          <li>What Cloud Native tools does Marcos use?</li>
+          <li>Which container orchestration platforms is Marcos experienced with?</li>
+          <li>What monitoring tools has Marcos worked with?</li>
+          <li>Which CI/CD tools does Marcos know?</li>
+          <li>What is Marcos’s professional background?</li>
+          <li>What security tools has Marcos implemented?</li>
+          <li>Which companies has Marcos worked for?</li>
+          <li>What AWS services does Marcos have experience with?</li>
+          <li>What databases has Marcos managed?</li>
+          <li>What operating systems is Marcos familiar with?</li>
+        </ul>
+      </div>
       <input id="questionInput" type="text" placeholder="Type your question or select one above..." />
     </div>
     <button onclick="sendQuestion()">Ask</button>
     <div class="response-box" id="answerBox"></div>
+    <footer>
+      <hr>
+      <div class="github-section">
+        <p class="project-info">This project was built to learn about <a href="https://ollama.ai"
+            target="_blank">Ollama</a>, <a href="https://ollama.ai/library" target="_blank">AI models</a>, and <a
+            href="https://flask.palletsprojects.com" target="_blank">Flask</a>. Most of the HTML and
+          JavaScript was written by AI.</p>
+        <div class="github-buttons">
+          <a href="https://github.com/marcossv9/marcos-silva.com" target="_blank" class="github-button">
+            ⭐ Star this project
+          </a>
+        </div>
+      </div>
+      <hr>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/marcos-silvav" target="_blank">LinkedIn</a>
+        <a href="{{ url_for('static', filename='resume.pdf') }}" target="_blank">Resume</a>
+        <a href="https://github.com/marcossv9" target="_blank">GitHub</a>
+      </div>
+    </footer>
   </div>
 
 </body>
