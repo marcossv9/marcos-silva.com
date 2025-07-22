@@ -52,8 +52,14 @@ USER appuser
 # Expose the port that the application listens on.
 EXPOSE 8080
 
-# Reset the entrypoint, don't invoke `uv`
-ENTRYPOINT []
+# Build argument to determine environment
+ARG FLASK_ENV=development
+ENV FLASK_ENV=${FLASK_ENV}
+ENV FLASK_DEBUG=${FLASK_DEBUG}
 
-# Run the application.
-CMD uv run main.py
+# Use shell form CMD to switch between development and production
+CMD if [ "$FLASK_ENV" = "production" ]; then \
+    gunicorn --bind 0.0.0.0:8080 --workers 4 --access-logfile - main:app; \
+    else \
+    uv run main.py; \
+    fi

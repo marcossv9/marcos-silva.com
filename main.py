@@ -3,7 +3,7 @@ from ollama import chat
 import os
 
 # Ensure the OLLAMA_HOST environment variable is set to the correct URL
-os.environ["OLLAMA_HOST"] = "http://ollama:11434"
+# os.environ["OLLAMA_HOST"] = "http://ollama:11434"
 
 app = Flask(__name__)
 
