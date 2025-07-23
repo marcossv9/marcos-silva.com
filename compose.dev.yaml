@@ -1,0 +1,58 @@
+services:
+  web:
+    # Build the image from the Dockerfile in the current directory
+    build:
+      context: .
+      args:
+        - FLASK_ENV=development
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+      - OLLAMA_HOST=ollama:11434
+    depends_on:
+      - ollama
+    # Host the Flask application on port 8080
+    ports:
+      - "8080:8080"
+
+    develop:
+      # Create a `watch` configuration to update the app
+      # https://docs.docker.com/compose/file-watch/#compose-watch-versus-bind-mounts
+      watch:
+        # Sync the working directory with the `/app` directory in the container
+        - action: sync
+          path: .
+          target: /app
+          # Exclude the project virtual environment — it could be for a
+          # different platform in the container
+          ignore:
+            - .venv/
+
+        # Rebuild the image if dependencies change by checking uv.lock
+        - action: rebuild
+          path: ./uv.lock
+    networks:
+      - ollama-docker
+
+  ollama:
+    # Use the official Ollama image
+    image: ollama/ollama:latest
+    environment:
+      - OLLAMA_HOST=0.0.0.0:11434
+    # Expose the Ollama API on port 11434
+    ports:
+      - "11434:11434"
+
+    volumes:
+      - ./ollama/ollama:/root/.ollama
+      - ./entrypoint.sh:/entrypoint.sh
+      - ./Modelfile:/root/Modelfile
+
+    entrypoint: ["/usr/bin/bash", "./entrypoint.sh"]
+    networks:
+      - ollama-docker
+
+networks:
+  ollama-docker:
+    # Use the default bridge network
+    driver: bridge
