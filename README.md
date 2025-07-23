@@ -14,7 +14,8 @@ Built with Python, Flask, and Ollama AI models.
 
 ---
 
-## Quick Start (Recommended: Docker Compose)
+
+## Quick Start (Development)
 
 ### 1. Clone the repository
 ```bash
@@ -33,23 +34,33 @@ docker compose -f compose.dev.yaml up --build --watch
 - Any code changes will automatically reload the app (thanks to the `develop` section in `compose.dev.yaml`)
 - Ollama may take a few seconds to start; wait for the "Ollama API is ready!" message before sending your first request
 
-### 3. Production Mode
+---
 
-Use [`compose.prod.yaml`](compose.prod.yaml) for a secure, optimized deployment:
+## Deploying to Hetzner VPS with Kamal
 
+Production deployments are managed using [Kamal](https://kamal-deploy.com/). You need to have Kamal installed and configured for your Hetzner VPS.
+
+### Deploy Ollama service:
 ```bash
-docker compose -f compose.prod.yaml up --build
+kamal deploy -c config/deploy.ollama.yml
 ```
-- Runs Flask with Gunicorn for production
-- No hot reload or debug mode
+
+### Deploy Website service:
+```bash
+kamal deploy -c config/deploy.website.yml
+```
+
+See the `config/` directory for deployment configuration files.
 
 ---
+
 
 ## Configuration Files
 - **Dockerfile**: Single file supports both dev and prod, switches mode based on `FLASK_ENV`
 - **compose.dev.yaml**: Development setup with hot reload and file watching
-- **compose.prod.yaml**: Production setup with Gunicorn and restart policies
 - **pyproject.toml**: Python dependencies and project metadata
+- **config/deploy.ollama.yml**: Kamal deployment config for Ollama service
+- **config/deploy.website.yml**: Kamal deployment config for website service
 
 ---
 
@@ -62,11 +73,11 @@ docker compose -f compose.prod.yaml up --build
 
 ---
 
+
 ## Project Structure
 ```
 marcos-silva.com/
 ├── compose.dev.yaml
-├── compose.prod.yaml
 ├── Dockerfile
 ├── pyproject.toml
 ├── main.py
@@ -76,6 +87,9 @@ marcos-silva.com/
 ├── ollama/
 ├── entrypoint.sh
 ├── Modelfile
+├── config/
+│   ├── deploy.ollama.yml
+│   └── deploy.website.yml
 └── ...
 ```
 
