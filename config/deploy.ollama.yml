@@ -35,7 +35,7 @@ env:
   # secret:
   #   - RAILS_MASTER_KEY
   clear:
-    OLLAMA_HOST: 0.0.0.0:11434
+    OLLAMA_HOST: 0.0.0.0
     OLLAMA_DEBUG: 0
 
 # Aliases are triggered with "bin/kamal <alias>". You can overwrite arguments on invocation:

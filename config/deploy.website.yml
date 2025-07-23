@@ -35,7 +35,7 @@ env:
   # secret:
   #   - RAILS_MASTER_KEY
   clear:
-    OLLAMA_HOST: ollama.cleanupmendoza.com:11434
+    OLLAMA_HOST: https://ollama.cleanupmendoza.com
     FLASK_ENV: production
     FLASK_DEBUG: 0
     PYTHONUNBUFFERED: 1
