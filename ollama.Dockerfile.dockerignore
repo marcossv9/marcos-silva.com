@@ -38,8 +38,14 @@ README.md
 # Exclude Terraform directories for now
 terraform
 
-# Exclude Ollama directories
-ollama/
-entrypoint.sh
-Modelfile
-data/
+# Exclude Application code
+.python-version
+static/
+templates/
+pyproject.toml
+uv.lock
+compose*
+Dockerfile
+main.py
+.dockerignore
+.kamal
