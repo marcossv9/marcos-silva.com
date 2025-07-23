@@ -24,9 +24,6 @@ ollama/ollama/models/blobs/
 ollama/ollama/models/manifests/
 ollama/ollama/id_ed25519*
 
-# uv (Astral)
-uv.lock
-
 # Docker
 *.log
 db-data/
