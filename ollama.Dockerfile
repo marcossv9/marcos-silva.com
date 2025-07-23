@@ -8,6 +8,7 @@ ENV OLLAMA_HOST=0.0.0.0:11434
 # COPY ollama/ollama /root/.ollama
 COPY Modelfile /root/Modelfile
 COPY entrypoint.sh /entrypoint.sh
+COPY data/marcos_info.txt /data/marcos_info.txt
 
 # Make entrypoint script executable
 RUN chmod +x /entrypoint.sh
