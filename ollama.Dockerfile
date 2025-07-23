@@ -5,7 +5,7 @@ FROM ollama/ollama:latest
 ENV OLLAMA_HOST=0.0.0.0:11434
 
 # Copy custom model and entrypoint script into the container
-COPY ollama/ollama /root/.ollama
+# COPY ollama/ollama /root/.ollama
 COPY Modelfile /root/Modelfile
 COPY entrypoint.sh /entrypoint.sh
 

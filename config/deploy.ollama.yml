@@ -4,10 +4,6 @@ service: ollama
 # Name of the container image.
 image: marcossv9/ollama
 
-# Use a different Dockerfile
-builder:
-  dockerfile: ollama.Dockerfile
-
 # Deploy to these servers.
 servers:
   web:
@@ -52,3 +48,4 @@ volumes:
 # Configure the image builder.
 builder:
   arch: amd64
+  dockerfile: ollama.Dockerfile

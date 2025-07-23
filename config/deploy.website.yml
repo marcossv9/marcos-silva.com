@@ -4,10 +4,6 @@ service: website
 # Name of the container image.
 image: marcossv9/website
 
-# Use a different Dockerfile
-builder:
-  dockerfile: Dockerfile
-
 # Deploy to these servers.
 servers:
   web:
@@ -50,3 +46,4 @@ asset_path: /app/static
 # Configure the image builder.
 builder:
   arch: amd64
+  dockerfile: Dockerfile
