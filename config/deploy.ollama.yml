@@ -16,6 +16,11 @@ servers:
 proxy:
   ssl: true
   host: ollama.cleanupmendoza.com
+  healthcheck:
+    interval: 3
+    path: /
+    timeout: 3
+  app_port: 11434
 
 # Credentials for your image host.
 registry:
@@ -31,6 +36,7 @@ env:
   #   - RAILS_MASTER_KEY
   clear:
     OLLAMA_HOST: 0.0.0.0:11434
+    OLLAMA_DEBUG: 0
 
 # Aliases are triggered with "bin/kamal <alias>". You can overwrite arguments on invocation:
 # "bin/kamal logs -r job" will tail logs from the first server in the job section.
@@ -41,9 +47,7 @@ aliases:
 # Use a persistent storage volume for sqlite database files and local Active Storage files.
 # Recommended to change this to a mounted volume path that is backed up off server.
 volumes:
-  - "./ollama/ollama:/root/.ollama"
-  - "./entrypoint.sh:/entrypoint.sh"
-  - "./Modelfile:/root/Modelfile"
+  - ollama_data:/root/.ollama
 
 # Configure the image builder.
 builder:

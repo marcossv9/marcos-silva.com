@@ -16,6 +16,11 @@ servers:
 proxy:
   ssl: true
   host: prod.cleanupmendoza.com
+  healthcheck:
+    interval: 3
+    path: /
+    timeout: 3
+  app_port: 8080
 
 # Credentials for your image host.
 registry:
@@ -30,7 +35,10 @@ env:
   # secret:
   #   - RAILS_MASTER_KEY
   clear:
-    OLLAMA_HOST: ollama:11434
+    OLLAMA_HOST: ollama.cleanupmendoza.com:11434
+    FLASK_ENV: production
+    FLASK_DEBUG: 0
+    PYTHONUNBUFFERED: 1
 
 # Aliases are triggered with "bin/kamal <alias>". You can overwrite arguments on invocation:
 # "bin/kamal logs -r job" will tail logs from the first server in the job section.

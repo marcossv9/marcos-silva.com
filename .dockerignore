@@ -42,4 +42,3 @@ terraform
 ollama/
 entrypoint.sh
 Modelfile
-data/
