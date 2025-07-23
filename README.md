@@ -35,10 +35,27 @@ docker compose -f compose.dev.yaml up --build --watch
 - Ollama may take a few seconds to start; wait for the "Ollama API is ready!" message before sending your first request
 
 ---
+## Setting up Hetzner VPS
+
+```bash
+export TF_VAR_hcloud_token=<YOUR_HETZNER_API_TOKEN>
+cd infra
+tofu init
+tofu plan
+tofu apply
+```
+
+---
 
 ## Deploying to Hetzner VPS with Kamal
 
 Production deployments are managed using [Kamal](https://kamal-deploy.com/). You need to have Kamal installed and configured for your Hetzner VPS.
+
+### Ensure you have exported your KAMAL_REGISTRY_PASSWORD:
+```bash
+export KAMAL_REGISTRY_PASSWORD=<YOUR_REGISTRY_PASSWORD>
+```
+> NOTE: Ensure you have configured your SSH key and Kamal.
 
 ### Deploy Ollama service:
 ```bash
