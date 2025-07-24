@@ -38,7 +38,7 @@
 
 <body>
   <div class="container">
-    <h1>Ask anything about Marcos</h1>
+    <h1>Ask anything about me</h1>
     <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem;">
       <div class="custom-dropdown" id="customDropdown">
         <div class="dropdown-selected" id="dropdownSelected">Select a sample question...</div>
@@ -79,6 +79,10 @@
         <a href="https://www.linkedin.com/in/marcos-silvav" target="_blank">LinkedIn</a>
         <a href="{{ url_for('static', filename='resume.pdf') }}" target="_blank">Resume</a>
         <a href="https://github.com/marcossv9" target="_blank">GitHub</a>
+      </div>
+      <div class="disclaimer" style="margin-top:1rem; font-size:0.95em; color:#888; text-align:center;">
+        <p><strong>Disclaimer:</strong> The AI model may respond slowly because it runs on a small VPS using only a CPU.
+          For faster results, consider using a GPU-based VPS.</p>
       </div>
     </footer>
   </div>
