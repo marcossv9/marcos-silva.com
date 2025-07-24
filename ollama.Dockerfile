@@ -1,8 +1,13 @@
+# syntax=docker/dockerfile:1
+
 # Dockerfile for custom Ollama container
 FROM ollama/ollama:latest
 
-# Set environment variable for Ollama host
+# Set environment variable for Ollama
 ENV OLLAMA_HOST=0.0.0.0:11434
+ENV  OLLAMA_MAX_LOADED_MODELS=1
+ENV OLLAMA_NUM_PARALLEL=1
+ENV OLLAMA_MAX_QUEUE=10
 
 # Copy custom model and entrypoint script into the container
 # COPY ollama/ollama /root/.ollama

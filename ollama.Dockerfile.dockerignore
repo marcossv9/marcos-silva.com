@@ -37,6 +37,7 @@ README.md
 
 # Exclude Terraform directories for now
 terraform
+infra
 
 # Exclude Application code
 .python-version
