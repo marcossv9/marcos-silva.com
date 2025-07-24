@@ -40,7 +40,7 @@ def chat_stream():
 
     def generate():
         stream = chat(
-            model="marcos-assistant:1.0",
+            model="marcos-assistant:2.0",
             messages=[{"role": "user", "content": prompt}],
             stream=True,
         )

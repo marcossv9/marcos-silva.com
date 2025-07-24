@@ -6,7 +6,7 @@ Built with Python, Flask, and Ollama AI models.
 ---
 
 ## Features
-- Interactive AI assistant powered by Ollama (Gemma model)
+- Interactive AI assistant powered by Ollama (Phi3 model)
 - Custom dropdown with predefined questions
 - Real-time streaming responses (SSE)
 - Responsive, modern UI
@@ -67,7 +67,7 @@ See the `config/` directory for deployment configuration files.
 
 ## Technologies Used
 - [Flask](https://flask.palletsprojects.com/) - Web framework
-- [Ollama](https://ollama.ai/) - AI model server (Gemma 1B)
+- [Ollama](https://ollama.ai/) - AI model server (Phi 3 mini)
 - [Docker](https://www.docker.com/) & [Docker Compose](https://docs.docker.com/compose/)
 - [Gunicorn](https://gunicorn.org/) - Production WSGI server
 - [uv](https://github.com/astral-sh/uv) - Fast Python package manager

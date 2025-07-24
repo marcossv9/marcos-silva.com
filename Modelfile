@@ -1,4 +1,4 @@
-FROM gemma3:1b
+FROM phi3:mini
 
 # set the temperature to 1 [higher is more creative, lower is more coherent]
 PARAMETER temperature 0
