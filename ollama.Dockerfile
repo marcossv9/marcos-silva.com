@@ -1,3 +1,5 @@
+# syntax=docker/dockerfile:1
+
 # Dockerfile for custom Ollama container
 FROM ollama/ollama:latest
 

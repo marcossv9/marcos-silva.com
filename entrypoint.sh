@@ -10,12 +10,12 @@ sleep 5
 
 # Create custom model.
 echo "🔵 Creating custom model..."
-ollama create marcos-assistant:1.0 -f /root/Modelfile
+ollama create marcos-assistant:2.0 -f /root/Modelfile
 echo "🟢 Done!"
 
 # Run the custom model.
 echo "🔵 Running custom model..."
-ollama run marcos-assistant:1.0
+ollama run marcos-assistant:2.0
 echo "🟢 Done!"
 
 # echo "🔴 Retrieve DeepSeek model..."
