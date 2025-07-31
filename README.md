@@ -23,6 +23,7 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for development setup and local run ins
 
 ```bash
 export TF_VAR_hcloud_token=<YOUR_HETZNER_API_TOKEN>
+export TF_VAR_ssh_publickey=<YOUR_SSH_PUBLIC_KEY>
 cd infra
 tofu init
 tofu plan
