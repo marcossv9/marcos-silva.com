@@ -1,7 +1,7 @@
 #cloud-config
 users:
   - name: ms
-    groups: sudo, ssh-user, users, admin, docker
+    groups: users, admin, docker
     sudo: ALL=(ALL) NOPASSWD:ALL
     shell: /bin/bash
     ssh_authorized_keys:
