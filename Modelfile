@@ -1,4 +1,4 @@
-FROM gemma3:1b-it-qat
+FROM gemma3:270m
 
 # set the temperature to 1 [higher is more creative, lower is more coherent]
 PARAMETER temperature 0
