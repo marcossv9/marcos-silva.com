@@ -21,6 +21,8 @@ proxy:
     path: /
     timeout: 3
   app_port: 8080
+  ssl_redirect: true
+  response_timeout: 60
 
 # Credentials for your image host.
 registry:
