@@ -21,6 +21,8 @@ proxy:
     path: /
     timeout: 3
   app_port: 8080
+  ssl_redirect: true
+  response_timeout: 60
 
 # Credentials for your image host.
 registry:
@@ -55,3 +57,9 @@ asset_path: /app/static
 builder:
   arch: amd64
   dockerfile: Dockerfile
+
+# SSH Config
+ssh:
+  user: ms
+  port: "2222"
+  log_level: fatal
