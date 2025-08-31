@@ -2,7 +2,7 @@
 service: ollama
 
 # Name of the container image.
-image: marcossv9/marcos-silva.com:ollama
+image: marcossv9/marcos-silva.com:ollama-latest
 
 # Deploy to these servers.
 servers:

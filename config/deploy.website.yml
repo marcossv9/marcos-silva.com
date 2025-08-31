@@ -2,7 +2,7 @@
 service: website
 
 # Name of the container image.
-image: marcossv9/marcos-silva.com:website
+image: marcossv9/marcos-silva.com:website-latest
 
 # Deploy to these servers.
 servers:
