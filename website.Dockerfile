@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-ARG PYTHON_VERSION=3.12.11
+ARG PYTHON_VERSION=3.12.10
 FROM python:${PYTHON_VERSION}-slim AS base
 
 # Download and install uv
@@ -40,17 +40,14 @@ COPY . /app
 # Change ownership of /app to appuser
 RUN chown -R appuser:appuser /app
 
+# Switch to non-privileged user
+USER appuser
+
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --locked --no-dev
 
-# Explicitly grant execute permissions to gunicorn
-RUN chmod +x /app/.venv/bin/gunicorn
-
 # Place executables in the environment at the front of the path
 ENV PATH="/app/.venv/bin:$PATH"
-
-# Switch to non-privileged user
-USER appuser
 
 # Expose the port that the application listens on.
 EXPOSE 8080
