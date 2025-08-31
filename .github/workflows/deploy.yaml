@@ -14,7 +14,7 @@ permissions:
   id-token: write
   packages: write
 
-env:
+# env:
   # REGISTRY: ghcr.io
   # IMAGE_NAME: ${{ github.repository }}
   # VERSION: ${{ github.sha }}
@@ -43,8 +43,9 @@ jobs:
           gem install kamal
           kamal version
 
-      - uses: webfactory/ssh-agent@v0.9.1
+      - name: Start SSH agent and add key
         id: ssh-agent
+        uses: webfactory/ssh-agent@v0.9.1
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
