@@ -46,7 +46,7 @@ templates/
 pyproject.toml
 uv.lock
 compose*
-Dockerfile
+website.Dockerfile
 main.py
-.dockerignore
+website.Dockerfile.dockerignore
 .kamal
