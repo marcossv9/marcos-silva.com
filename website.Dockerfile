@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-ARG PYTHON_VERSION=3.12.3
+ARG PYTHON_VERSION=3.12.11
 FROM python:${PYTHON_VERSION}-slim AS base
 
 # Download and install uv
