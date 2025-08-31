@@ -50,10 +50,16 @@ jobs:
         id: github-runtime
         uses: crazy-max/ghaction-github-runtime@v3.1.0
 
-      - name: Deploy with Kamal
-        id: deploy-with-kamal
+      - name: Deploy Ollama with Kamal
+        id: deploy-ollama-with-kamal
         env:
           KAMAL_REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
         run: |
           kamal deploy -c config/deploy.ollama.yml
+
+      - name: Deploy Website with Kamal
+        id: deploy-website-with-kamal
+        env:
+          KAMAL_REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+        run: |
           kamal deploy -c config/deploy.website.yml
