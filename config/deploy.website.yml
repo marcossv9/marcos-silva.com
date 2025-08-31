@@ -2,7 +2,7 @@
 service: website
 
 # Name of the container image.
-image: marcossv9/marcos-silva.com:website
+image: marcossv9/marcos-silva.com
 
 # Deploy to these servers.
 servers:
@@ -57,6 +57,8 @@ asset_path: /app/static
 # Configure the image builder.
 builder:
   arch: amd64
+  cache:
+    type: gha
   dockerfile: website.Dockerfile
 
 # SSH Config
