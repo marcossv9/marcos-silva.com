@@ -2,7 +2,7 @@
 service: ollama
 
 # Name of the container image.
-image: marcossv9/ollama
+image: marcossv9/marcos-silva.com:ollama-latest
 
 # Deploy to these servers.
 servers:
@@ -26,6 +26,7 @@ proxy:
 
 # Credentials for your image host.
 registry:
+  server: ghcr.io
   username: marcossv9
 
   # Always use an access token rather than real password when possible.

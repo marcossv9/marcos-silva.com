@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-ARG PYTHON_VERSION=3.12.3
+ARG PYTHON_VERSION=3.12.11
 FROM python:${PYTHON_VERSION}-slim AS base
 
 # Download and install uv
@@ -55,7 +55,6 @@ EXPOSE 8080
 # Build argument to determine environment
 ARG FLASK_ENV=development
 ENV FLASK_ENV=${FLASK_ENV}
-ENV FLASK_DEBUG=${FLASK_DEBUG}
 
 # Use shell form CMD to switch between development and production
 CMD if [ "$FLASK_ENV" = "production" ]; then \

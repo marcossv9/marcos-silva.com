@@ -1,0 +1,57 @@
+#
+# Description: workflow for deploying with Kamal
+#
+
+name: Deploy with Kamal
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+  packages: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        service: [website, ollama]
+    steps:
+      - name: Checkout repository
+        id: checkout
+        uses: actions/checkout@v5.0.0
+
+      - name: Set up Ruby
+        id: setup-ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.5"
+          bundler-cache: true
+
+      - name: Install Kamal
+        id: install-kamal
+        run: |
+          gem install kamal
+          kamal version
+
+      - name: Start SSH agent and add key
+        id: ssh-agent
+        uses: webfactory/ssh-agent@v0.9.1
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v3.11.1
+
+      - name: Deploy with Kamal
+        id: deploy-with-kamal
+        env:
+          KAMAL_REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          kamal deploy -c config/deploy.${{ matrix.service }}.yml

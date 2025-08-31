@@ -7,7 +7,7 @@ name: CI
 on:
   pull_request:
     branches:
-      - main
+      - master
 
 permissions:
   contents: read
@@ -46,27 +46,22 @@ jobs:
         id: build-and-push
         uses: docker/build-push-action@v6.18.0
         with:
-          context: Dockerfile.${{ matrix.service }}
+          context: .
+          file: ${{ matrix.service }}.Dockerfile
           push: true
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.service }}-${{ env.VERSION }}
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.service }}-${{ env.VERSION }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
       - name: Run Trivy vulnerability scanner
         id: trivy-scan
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@0.33.0
         with:
           image-ref: '${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.service }}-${{ env.VERSION }}'
           format: 'table'
           exit-code: '1'
           ignore-unfixed: true
           vuln-type: 'os,library'
-          severity: 'CRITICAL,HIGH'
-
-      # - name: Deploy with Kamal
-      #   id: deploy
-      #   env:
-      #     KAMAL_REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
-      #   run: |
-      #     kamal deploy --version ${{ env.VERSION }} --service ${{ matrix.service }}
+          severity: 'CRITICAL'
 
