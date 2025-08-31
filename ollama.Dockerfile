@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # Dockerfile for custom Ollama container
-FROM ollama/ollama:latest
+FROM ollama/ollama:0.11.8
 
 # Set environment variable for Ollama
 ENV OLLAMA_HOST=0.0.0.0:11434
