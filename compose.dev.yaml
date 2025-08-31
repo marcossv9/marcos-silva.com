@@ -2,6 +2,7 @@ services:
   web:
     build:
       context: .
+      dockerfile: website.Dockerfile
       args:
         - FLASK_ENV=development
     environment:
@@ -45,7 +46,7 @@ services:
       - ./ollama/ollama:/root/.ollama
       - ./entrypoint.sh:/entrypoint.sh
       - ./Modelfile:/root/Modelfile
-    entrypoint: ["/usr/bin/bash", "./entrypoint.sh"]
+    entrypoint: [ "/usr/bin/bash", "./entrypoint.sh" ]
     networks:
       - ollama-docker
 
