@@ -57,7 +57,7 @@ asset_path: /app/static
 # Configure the image builder.
 builder:
   arch: amd64
-  dockerfile: Dockerfile
+  dockerfile: website.Dockerfile
 
 # SSH Config
 ssh:
