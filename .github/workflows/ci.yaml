@@ -50,7 +50,7 @@ jobs:
           file: ${{ matrix.service }}.Dockerfile
           push: true
           tags: |
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.service }}-${{ env.VERSION }}
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/${{ matrix.service }}:${{ env.VERSION }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
@@ -58,7 +58,7 @@ jobs:
         id: trivy-scan
         uses: aquasecurity/trivy-action@0.33.0
         with:
-          image-ref: '${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.service }}-${{ env.VERSION }}'
+          image-ref: '${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/${{ matrix.service }}:${{ env.VERSION }}'
           format: 'table'
           exit-code: '1'
           ignore-unfixed: true
