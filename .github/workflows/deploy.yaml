@@ -14,11 +14,6 @@ permissions:
   id-token: write
   packages: write
 
-# env:
-  # REGISTRY: ghcr.io
-  # IMAGE_NAME: ${{ github.repository }}
-  # VERSION: ${{ github.sha }}
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
