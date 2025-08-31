@@ -43,6 +43,9 @@ RUN chown -R appuser:appuser /app
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --locked --no-dev
 
+# Explicitly grant execute permissions to gunicorn
+RUN chmod +x /app/.venv/bin/gunicorn
+
 # Place executables in the environment at the front of the path
 ENV PATH="/app/.venv/bin:$PATH"
 
